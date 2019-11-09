@@ -1,0 +1,47 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.0",
+	"appid": "wx2430d46a4351309c",
+	"projectname": "uni_app",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"name": "SWVT20190821091448593a",
+					"query": "app=SWVT20190821091448593a",
+					"id": 0,
+					"pathName": "pages/detail/index"
+				},
+				{
+					"name": "SWVTT201908231219107b8a",
+					"query": "app=SWVTT201908231219107b8a",
+					"id": 1,
+					"pathName": "pages/detail/index"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "NATS",
+  "usingComponents": {
+    "detail-basic": "/pages/detail/basic",
+    "detail-module": "/pages/detail/module"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "pages": [
+    // pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/detail/index",
+      "style": {
+        "navigationBarTitleText": "NATS"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "backgroundColor": "#f8f8f8"
+  },
+  "condition": {
+    // 当前激活的模式(list 的索引项)
+    "current": 0,
+    "list": [
+      {
+        // 模式名称
+        "name": "SWVT20190821091448593a",
+        // 启动页面
+        "path": "pages/detail/index",
+        // 启动参数，在页面onload的函数里面得到
+        "query": "app=SWVT20190821091448593a"
+      },
+      {
+        // 模式名称
+        "name": "SWVTT201908231219107b8a",
+        // 启动页面
+        "path": "pages/detail/index",
+        // 启动参数，在页面onload的函数里面得到
+        "query": "app=SWVTT201908231219107b8a"
+      }
+    ]
+  }
+}
