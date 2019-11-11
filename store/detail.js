@@ -34,16 +34,12 @@ const detail = {
     },
   },
   actions: {
-    async setApp({commit, state}, app) {
+    async setApp({commit, state, rootState}, app) {
       try {
-        let [err, res] = await uni.request({
-          url: `http://nats-sh.unisoc.com:30001/app/uni/task/${app}`,
+        let res = await uni.$ax.request({
+          url: `/task/${app}`,
           method: 'GET',
         });
-        if (err) {
-          commit('setErr', err.toString());
-          return;
-        }
         let docs = res.data;
         if (docs.length == 0) {
           commit('setErr', '不存在!');
@@ -178,7 +174,6 @@ const detail = {
           state.offlineStatus,
         );
       }
-      // console.log(doc.element);
       return doc;
     },
   },

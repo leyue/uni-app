@@ -8,4 +8,4 @@ let func = {
   },
 };
 
-export {func};
+uni.$func = func;

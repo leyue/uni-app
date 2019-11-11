@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@dcloudio/uni-ui": "^1.0.6",
-    "mpvue-picker": "^2.1.6"
+    "mpvue-picker": "^2.1.6",
+    "vue-async-computed": "^3.7.0"
   }
 }

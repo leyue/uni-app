@@ -7,6 +7,21 @@
       <view class="v-space">
         <detail-module />
       </view>
+      <view class="v-space">
+        <detail-category />
+      </view>
+      <view class="v-space">
+        <detail-pwr />
+      </view>
+      <view class="v-space">
+        <detail-stability />
+      </view>
+      <view class="v-space">
+        <detail-tool />
+      </view>
+      <view class="v-space">
+        <detail-bug />
+      </view>
     </view>
   </scroll-view>
 </template>
@@ -15,11 +30,21 @@
 import {mapState, mapGetters} from 'vuex';
 import basic from './basic';
 import module from './module';
+import category from './category';
+import pwr from './pwr';
+import stability from './stability';
+import tool from './tool';
+import bug from './bug';
 
 export default {
   components: {
     detailBasic: basic,
     detailModule: module,
+    detailCategory: category,
+    detailPwr: pwr,
+    detailStability: stability,
+    detailTool: tool,
+    detailBug: bug,
   },
   computed: {},
   watch: {},
@@ -32,6 +57,8 @@ export default {
       title: '加载中...',
       mask: false,
     });
+    await uni.$ax.login();
+    await uni.$func.mSleep(10);
     await this.$store.dispatch('detail/setApp', e.app);
     uni.hideLoading();
   },

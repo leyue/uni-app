@@ -1,7 +1,7 @@
 <template>
   <view style="width: 100%">
     <collapse title="模块统计">
-      <view slot="content">
+      <view slot="content" class="content">
         <view class="list-item" v-for="(item, idx) in items" :key="idx">
           <view class="item">
             <text class="label">模块</text>
@@ -66,14 +66,15 @@ export default {
 };
 </script>
 <style>
+.content {
+  padding: 10upx;
+}
 .list-item {
   box-sizing: border-box;
   border: 1upx solid #c0c2c4;
   border-radius: 3upx;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-  margin-top: 10upx;
-  margin-left: 10upx;
-  margin-right: 10upx;
+  margin-bottom: 10upx;
   padding-left: 10upx;
   padding-right: 10upx;
 }

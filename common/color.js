@@ -29,4 +29,4 @@ const color = {
   demo: '#FF4081',
 };
 
-export {color};
+uni.$color = color;

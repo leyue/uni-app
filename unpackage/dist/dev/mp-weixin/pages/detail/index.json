@@ -2,6 +2,11 @@
   "navigationBarTitleText": "NATS",
   "usingComponents": {
     "detail-basic": "/pages/detail/basic",
-    "detail-module": "/pages/detail/module"
+    "detail-module": "/pages/detail/module",
+    "detail-category": "/pages/detail/category",
+    "detail-pwr": "/pages/detail/pwr",
+    "detail-stability": "/pages/detail/stability",
+    "detail-tool": "/pages/detail/tool",
+    "detail-bug": "/pages/detail/bug"
   }
 }
