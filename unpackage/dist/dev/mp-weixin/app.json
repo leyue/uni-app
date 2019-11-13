@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/detail/index"
+    "pages/detail/index",
+    "pages/alink/index"
   ],
   "subPackages": [],
   "window": {
@@ -19,5 +20,5 @@
     "page-foot": "/components/page-foot",
     "u-link": "/components/uLink"
   },
-  "sitemapLocation": "sitemap91.json"
+  "sitemapLocation": "sitemap12.json"
 }

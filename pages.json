@@ -6,6 +6,12 @@
       "style": {
         "navigationBarTitleText": "NATS"
       }
+    },
+    {
+      "path": "pages/alink/index",
+      "style": {
+        "navigationBarTitleText": "bugzilla"
+      }
     }
   ],
   "globalStyle": {

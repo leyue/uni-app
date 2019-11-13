@@ -40,6 +40,7 @@ const detail = {
           url: `/task/${app}`,
           method: 'GET',
         });
+        console.log(res);
         let docs = res.data;
         if (docs.length == 0) {
           commit('setErr', '不存在!');
@@ -104,7 +105,7 @@ const detail = {
       return proIns;
     },
     doc(state) {
-      function formartCase(cases, status) {
+      function formartAndFilterCase(cases, status) {
         let data = {};
         function prehandle(module, category) {
           if (!data[module]) {
@@ -165,11 +166,11 @@ const detail = {
         }
         doc = JSON.parse(JSON.stringify(item));
         doc.idx = idx;
-        doc.archive.cases.online = formartCase(
+        doc.archive.cases.online = formartAndFilterCase(
           item.archive.cases.online,
           state.onlineStatus,
         );
-        doc.archive.cases.offline = formartCase(
+        doc.archive.cases.offline = formartAndFilterCase(
           item.archive.cases.offline,
           state.offlineStatus,
         );

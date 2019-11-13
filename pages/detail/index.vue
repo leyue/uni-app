@@ -1,7 +1,7 @@
 <template>
   <scroll-view>
     <view class="content">
-      <view>
+      <view class="v-space">
         <detail-basic />
       </view>
       <view class="v-space">
@@ -22,6 +22,12 @@
       <view class="v-space">
         <detail-bug />
       </view>
+      <view class="v-space">
+        <detail-online-case />
+      </view>
+      <view class="v-space">
+        <detail-offline-case />
+      </view>
     </view>
   </scroll-view>
 </template>
@@ -35,6 +41,8 @@ import pwr from './pwr';
 import stability from './stability';
 import tool from './tool';
 import bug from './bug';
+import onlineCase from './online.case';
+import offlineCase from './offline.case';
 
 export default {
   components: {
@@ -45,6 +53,8 @@ export default {
     detailStability: stability,
     detailTool: tool,
     detailBug: bug,
+    detailOnlineCase: onlineCase,
+    detailOfflineCase: offlineCase,
   },
   computed: {},
   watch: {},
@@ -59,7 +69,9 @@ export default {
     });
     await uni.$ax.login();
     await uni.$func.mSleep(10);
-    await this.$store.dispatch('detail/setApp', e.app);
+    let app = e.app || 'SWVT20190821091448593a';
+    console.log(app);
+    await this.$store.dispatch('detail/setApp', app);
     uni.hideLoading();
   },
 };
@@ -67,12 +79,10 @@ export default {
 
 <style>
 .content {
-  padding-left: 10upx;
-  padding-right: 10upx;
+  padding-left: 15upx;
+  padding-right: 15upx;
 }
 .v-space {
-  margin-top: 10upx;
-  padding-left: 10upx;
-  padding-right: 10upx;
+  margin-bottom: 10upx;
 }
 </style>

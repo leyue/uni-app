@@ -151,7 +151,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 23);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var basic = function basic() {return __webpack_require__.e(/*! import() | pages/detail/basic */ "pages/detail/basic").then(__webpack_require__.bind(null, /*! ./basic */ 52));};var module = function module() {return __webpack_require__.e(/*! import() | pages/detail/module */ "pages/detail/module").then(__webpack_require__.bind(null, /*! ./module */ 59));};var category = function category() {return __webpack_require__.e(/*! import() | pages/detail/category */ "pages/detail/category").then(__webpack_require__.bind(null, /*! ./category */ 66));};var pwr = function pwr() {return __webpack_require__.e(/*! import() | pages/detail/pwr */ "pages/detail/pwr").then(__webpack_require__.bind(null, /*! ./pwr */ 73));};var stability = function stability() {return __webpack_require__.e(/*! import() | pages/detail/stability */ "pages/detail/stability").then(__webpack_require__.bind(null, /*! ./stability */ 80));};var tool = function tool() {return __webpack_require__.e(/*! import() | pages/detail/tool */ "pages/detail/tool").then(__webpack_require__.bind(null, /*! ./tool */ 87));};var bug = function bug() {return __webpack_require__.e(/*! import() | pages/detail/bug */ "pages/detail/bug").then(__webpack_require__.bind(null, /*! ./bug */ 94));};var _default =
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 23);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var basic = function basic() {return __webpack_require__.e(/*! import() | pages/detail/basic */ "pages/detail/basic").then(__webpack_require__.bind(null, /*! ./basic */ 58));};var module = function module() {return __webpack_require__.e(/*! import() | pages/detail/module */ "pages/detail/module").then(__webpack_require__.bind(null, /*! ./module */ 65));};var category = function category() {return __webpack_require__.e(/*! import() | pages/detail/category */ "pages/detail/category").then(__webpack_require__.bind(null, /*! ./category */ 72));};var pwr = function pwr() {return __webpack_require__.e(/*! import() | pages/detail/pwr */ "pages/detail/pwr").then(__webpack_require__.bind(null, /*! ./pwr */ 79));};var stability = function stability() {return __webpack_require__.e(/*! import() | pages/detail/stability */ "pages/detail/stability").then(__webpack_require__.bind(null, /*! ./stability */ 86));};var tool = function tool() {return __webpack_require__.e(/*! import() | pages/detail/tool */ "pages/detail/tool").then(__webpack_require__.bind(null, /*! ./tool */ 93));};var bug = function bug() {return __webpack_require__.e(/*! import() | pages/detail/bug */ "pages/detail/bug").then(__webpack_require__.bind(null, /*! ./bug */ 100));};var onlineCase = function onlineCase() {return __webpack_require__.e(/*! import() | pages/detail/online.case */ "pages/detail/online.case").then(__webpack_require__.bind(null, /*! ./online.case */ 107));};var offlineCase = function offlineCase() {return __webpack_require__.e(/*! import() | pages/detail/offline.case */ "pages/detail/offline.case").then(__webpack_require__.bind(null, /*! ./offline.case */ 114));};var _default =
+
+
 
 
 
@@ -168,7 +176,9 @@ var _vuex = __webpack_require__(/*! vuex */ 23);function _interopRequireDefault(
     detailPwr: pwr,
     detailStability: stability,
     detailTool: tool,
-    detailBug: bug },
+    detailBug: bug,
+    detailOnlineCase: onlineCase,
+    detailOfflineCase: offlineCase },
 
   computed: {},
   watch: {},
@@ -176,15 +186,17 @@ var _vuex = __webpack_require__(/*! vuex */ 23);function _interopRequireDefault(
     return {};
   },
   methods: {},
-  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(e) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+  onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(e) {var app;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
               uni.showLoading({
                 title: '加载中...',
                 mask: false });_context.next = 3;return (
 
                 uni.$ax.login());case 3:_context.next = 5;return (
-                uni.$func.mSleep(10));case 5:_context.next = 7;return (
-                this.$store.dispatch('detail/setApp', e.app));case 7:
-              uni.hideLoading();case 8:case "end":return _context.stop();}}}, _callee, this);}));function onLoad(_x) {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
+                uni.$func.mSleep(10));case 5:
+              app = e.app || 'SWVT20190821091448593a';
+              console.log(app);_context.next = 9;return (
+                this.$store.dispatch('detail/setApp', app));case 9:
+              uni.hideLoading();case 10:case "end":return _context.stop();}}}, _callee, this);}));function onLoad(_x) {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),

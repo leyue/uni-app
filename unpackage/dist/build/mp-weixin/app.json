@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "pages/detail/index",
+    "pages/alink/index"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "backgroundColor": "#f8f8f8"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "演示定位能力"
+    }
+  },
+  "usingComponents": {
+    "page-head": "/components/page-head",
+    "page-foot": "/components/page-foot",
+    "u-link": "/components/uLink"
+  },
+  "sitemapLocation": "sitemap.json"
+}

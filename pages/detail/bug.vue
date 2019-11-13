@@ -1,15 +1,31 @@
 <template>
   <view style="width: 100%">
-    <collapse title="BUGS">
+    <collapse title="BUGS" :expand="false">
       <view slot="content" class="content">
         <view class="list-item" v-for="(item, idx) in bugs" :key="idx">
           <view class="item">
-            <text class="label">名称</text>
-            <text class="h-space light">{{item}}</text>
+            <text class="label">模块</text>
+            <text class="h-space light">{{item.module}}</text>
           </view>
           <view class="item">
-            <text class="label">版本</text>
-            <text class="h-space light">{{item.version}}</text>
+            <text class="label">CaseID</text>
+            <text class="h-space light">{{item.name}}</text>
+          </view>
+          <view class="item">
+            <text class="label">Case别名</text>
+            <text class="h-space light">{{item.alias}}</text>
+          </view>
+          <view class="item">
+            <text class="label">BugID</text>
+            <text class="h-space light">{{item.bugID}}</text>
+          </view>
+          <view class="item">
+            <text class="label">Bug描述</text>
+            <text
+              class="h-space light"
+              style="color: #334960"
+              @click="navigato(`https://bugzilla.unisoc.com/bugzilla/show_bug.cgi?id=${item.bugID}`)"
+            >{{item.summary}}</text>
           </view>
         </view>
       </view>
@@ -38,12 +54,27 @@ export default {
         if (!this.doc) {
           return [];
         }
-        await uni.$func.mSleep(100);
         let bugIds = [];
         for (let item of this.doc.archive.report.bugs) {
           bugIds.push(item.bugID);
         }
-        return bugIds;
+        if (bugIds.length == 0) {
+          return [];
+        }
+        let res = await uni.$ax.request({
+          url: `/bug?where=${JSON.stringify(bugIds)}`,
+          method: 'GET',
+        });
+        let bugs = [];
+        for (let item of this.doc.archive.report.bugs) {
+          let {bugID, name} = item;
+          let bug = res.data.find(n => {
+            return n.id == bugID;
+          });
+          let data = {...item, id: bug.id, summary: bug.summary};
+          bugs.push(data);
+        }
+        return bugs;
       },
     },
   },
@@ -52,7 +83,16 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    navigato(url) {
+      uni.navigateTo({
+        url: `/pages/alink/index?url=${url}`,
+        success: res => {},
+        fail: () => {},
+        complete: () => {},
+      });
+    },
+  },
   async onLoad(e) {
     console.log(this.$store);
   },
@@ -91,6 +131,6 @@ export default {
 }
 .light {
   color: #7e8c8d;
-  width: 35%;
+  width: 78%;
 }
 </style>

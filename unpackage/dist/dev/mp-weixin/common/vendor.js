@@ -75,7 +75,81 @@ uni.$color = color;
 
 /***/ }),
 
-/***/ 106:
+/***/ 11:
+/*!**************************************!*\
+  !*** D:/home/uni_app/common/func.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {var func = {
+  mSleep: function mSleep(ms) {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        resolve();
+      }, ms);
+    });
+  } };
+
+
+uni.$func = func;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+
+/***/ 12:
+/*!************************************!*\
+  !*** D:/home/uni_app/common/ax.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance");}function _iterableToArrayLimit(arr, i) {var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _wrapNativeSuper(Class) {var _cache = typeof Map === "function" ? new Map() : undefined;_wrapNativeSuper = function _wrapNativeSuper(Class) {if (Class === null || !_isNativeFunction(Class)) return Class;if (typeof Class !== "function") {throw new TypeError("Super expression must either be null or a function");}if (typeof _cache !== "undefined") {if (_cache.has(Class)) return _cache.get(Class);_cache.set(Class, Wrapper);}function Wrapper() {return _construct(Class, arguments, _getPrototypeOf(this).constructor);}Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } });return _setPrototypeOf(Wrapper, Class);};return _wrapNativeSuper(Class);}function isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));return true;} catch (e) {return false;}}function _construct(Parent, args, Class) {if (isNativeReflectConstruct()) {_construct = Reflect.construct;} else {_construct = function _construct(Parent, args, Class) {var a = [null];a.push.apply(a, args);var Constructor = Function.bind.apply(Parent, a);var instance = new Constructor();if (Class) _setPrototypeOf(instance, Class.prototype);return instance;};}return _construct.apply(null, arguments);}function _isNativeFunction(fn) {return Function.toString.call(fn).indexOf("[native code]") !== -1;}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);}var Ax = /*#__PURE__*/function (_Object) {_inherits(Ax, _Object);
+  function Ax(props) {var _this;_classCallCheck(this, Ax);
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Ax).call(this));
+    _this.baseURL = props.baseURL;
+    _this.token = null;return _this;
+  }_createClass(Ax, [{ key: "login", value: function () {var _login = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _ref, _ref2, err, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+
+
+                  uni.request({
+                    url: "".concat(this.baseURL, "/session"),
+                    method: 'POST',
+                    data: {
+                      name: 'root',
+                      pwd: '123456780' } }));case 2:_ref = _context.sent;_ref2 = _slicedToArray(_ref, 2);err = _ref2[0];res = _ref2[1];if (!
+
+
+                err) {_context.next = 8;break;}throw (
+                  err);case 8:
+
+                this.token = res.data.token;case 9:case "end":return _context.stop();}}}, _callee, this);}));function login() {return _login.apply(this, arguments);}return login;}() }, { key: "request", value: function () {var _request = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(
+
+
+      data) {var req, _ref3, _ref4, err, res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                req = Object.assign(data, {
+                  url: "".concat(this.baseURL).concat(data.url),
+                  header: {
+                    Authorization: "Bearer ".concat(this.token) } });_context2.next = 3;return (
+
+
+                  uni.request(req));case 3:_ref3 = _context2.sent;_ref4 = _slicedToArray(_ref3, 2);err = _ref4[0];res = _ref4[1];if (!
+                err) {_context2.next = 9;break;}throw (
+                  err);case 9:return _context2.abrupt("return",
+
+                res);case 10:case "end":return _context2.stop();}}}, _callee2, this);}));function request(_x) {return _request.apply(this, arguments);}return request;}() }]);return Ax;}(_wrapNativeSuper(Object));
+
+
+
+uni.$ax = new Ax({
+  baseURL: 'http://nats-sh.unisoc.com:30001/app' });
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+
+/***/ 126:
 /*!****************************************************************************!*\
   !*** D:/home/uni_app/node_modules/@dcloudio/uni-ui/lib/uni-icons/icons.js ***!
   \****************************************************************************/
@@ -181,81 +255,67 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 11:
-/*!**************************************!*\
-  !*** D:/home/uni_app/common/func.js ***!
-  \**************************************/
+/***/ 13:
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {var func = {
-  mSleep: function mSleep(ms) {
-    return new Promise(function (resolve, reject) {
-      setTimeout(function () {
-        resolve();
-      }, ms);
-    });
-  } };
+module.exports = __webpack_require__(/*! regenerator-runtime */ 14);
 
-
-uni.$func = func;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 
-/***/ 12:
-/*!************************************!*\
-  !*** D:/home/uni_app/common/ax.js ***!
-  \************************************/
+/***/ 14:
+/*!************************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance");}function _iterableToArrayLimit(arr, i) {var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _wrapNativeSuper(Class) {var _cache = typeof Map === "function" ? new Map() : undefined;_wrapNativeSuper = function _wrapNativeSuper(Class) {if (Class === null || !_isNativeFunction(Class)) return Class;if (typeof Class !== "function") {throw new TypeError("Super expression must either be null or a function");}if (typeof _cache !== "undefined") {if (_cache.has(Class)) return _cache.get(Class);_cache.set(Class, Wrapper);}function Wrapper() {return _construct(Class, arguments, _getPrototypeOf(this).constructor);}Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } });return _setPrototypeOf(Wrapper, Class);};return _wrapNativeSuper(Class);}function isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));return true;} catch (e) {return false;}}function _construct(Parent, args, Class) {if (isNativeReflectConstruct()) {_construct = Reflect.construct;} else {_construct = function _construct(Parent, args, Class) {var a = [null];a.push.apply(a, args);var Constructor = Function.bind.apply(Parent, a);var instance = new Constructor();if (Class) _setPrototypeOf(instance, Class.prototype);return instance;};}return _construct.apply(null, arguments);}function _isNativeFunction(fn) {return Function.toString.call(fn).indexOf("[native code]") !== -1;}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);}var Ax = /*#__PURE__*/function (_Object) {_inherits(Ax, _Object);
-  function Ax(props) {var _this;_classCallCheck(this, Ax);
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Ax).call(this));
-    _this.baseURL = props.baseURL;
-    _this.token = null;return _this;
-  }_createClass(Ax, [{ key: "login", value: function () {var _login = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _ref, _ref2, err, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
+// This method of obtaining a reference to the global object needs to be
+// kept identical to the way it is obtained in runtime.js
+var g = (function() {
+  return this || (typeof self === "object" && self);
+})() || Function("return this")();
 
-                  uni.request({
-                    url: "".concat(this.baseURL, "/session"),
-                    method: 'POST',
-                    data: {
-                      name: 'root',
-                      pwd: '123456780' } }));case 2:_ref = _context.sent;_ref2 = _slicedToArray(_ref, 2);err = _ref2[0];res = _ref2[1];if (!
+// Use `getOwnPropertyNames` because not all browsers support calling
+// `hasOwnProperty` on the global `self` object in a worker. See #183.
+var hadRuntime = g.regeneratorRuntime &&
+  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
 
+// Save the old regeneratorRuntime in case it needs to be restored later.
+var oldRuntime = hadRuntime && g.regeneratorRuntime;
 
-                err) {_context.next = 8;break;}throw (
-                  err);case 8:
+// Force reevalutation of runtime.js.
+g.regeneratorRuntime = undefined;
 
-                this.token = res.data.token;case 9:case "end":return _context.stop();}}}, _callee, this);}));function login() {return _login.apply(this, arguments);}return login;}() }, { key: "request", value: function () {var _request = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(
+module.exports = __webpack_require__(/*! ./runtime */ 15);
 
+if (hadRuntime) {
+  // Restore the original runtime.
+  g.regeneratorRuntime = oldRuntime;
+} else {
+  // Remove the global property added by runtime.js.
+  try {
+    delete g.regeneratorRuntime;
+  } catch(e) {
+    g.regeneratorRuntime = undefined;
+  }
+}
 
-      data) {var req, _ref3, _ref4, err, res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
-                req = Object.assign(data, {
-                  url: "".concat(this.baseURL).concat(data.url),
-                  header: {
-                    Authorization: "Bearer ".concat(this.token) } });_context2.next = 3;return (
-
-
-                  uni.request(req));case 3:_ref3 = _context2.sent;_ref4 = _slicedToArray(_ref3, 2);err = _ref4[0];res = _ref4[1];if (!
-                err) {_context2.next = 9;break;}throw (
-                  err);case 9:return _context2.abrupt("return",
-
-                res);case 10:case "end":return _context2.stop();}}}, _callee2, this);}));function request(_x) {return _request.apply(this, arguments);}return request;}() }]);return Ax;}(_wrapNativeSuper(Object));
-
-
-
-uni.$ax = new Ax({
-  baseURL: 'http://nats-sh.unisoc.com:30001/app' });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 
-/***/ 121:
+/***/ 148:
 /*!********************************************************************!*\
   !*** D:/home/uni_app/node_modules/mpvue-picker/src/utils/index.js ***!
   \********************************************************************/
@@ -341,66 +401,6 @@ var fixPickerValueDefault = function fixPickerValueDefault(pickerValue, mode, pi
   }
   return fixPickerValue;
 };exports.fixPickerValueDefault = fixPickerValueDefault;
-
-/***/ }),
-
-/***/ 13:
-/*!**********************************************************!*\
-  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! regenerator-runtime */ 14);
-
-
-/***/ }),
-
-/***/ 14:
-/*!************************************************************!*\
-  !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-// This method of obtaining a reference to the global object needs to be
-// kept identical to the way it is obtained in runtime.js
-var g = (function() {
-  return this || (typeof self === "object" && self);
-})() || Function("return this")();
-
-// Use `getOwnPropertyNames` because not all browsers support calling
-// `hasOwnProperty` on the global `self` object in a worker. See #183.
-var hadRuntime = g.regeneratorRuntime &&
-  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
-
-// Save the old regeneratorRuntime in case it needs to be restored later.
-var oldRuntime = hadRuntime && g.regeneratorRuntime;
-
-// Force reevalutation of runtime.js.
-g.regeneratorRuntime = undefined;
-
-module.exports = __webpack_require__(/*! ./runtime */ 15);
-
-if (hadRuntime) {
-  // Restore the original runtime.
-  g.regeneratorRuntime = oldRuntime;
-} else {
-  // Remove the global property added by runtime.js.
-  try {
-    delete g.regeneratorRuntime;
-  } catch(e) {
-    g.regeneratorRuntime = undefined;
-  }
-}
-
 
 /***/ }),
 
@@ -1870,7 +1870,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -3786,17 +3786,18 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.user = voi
                     url: "/task/".concat(app),
                     method: 'GET' }));case 4:res = _context.sent;
 
+                console.log(res);
                 docs = res.data;if (!(
-                docs.length == 0)) {_context.next = 9;break;}
-                commit('setErr', '不存在!');return _context.abrupt("return");case 9:
+                docs.length == 0)) {_context.next = 10;break;}
+                commit('setErr', '不存在!');return _context.abrupt("return");case 10:
 
 
-                status = 'passed';_iteratorNormalCompletion = true;_didIteratorError = false;_iteratorError = undefined;_context.prev = 13;
+                status = 'passed';_iteratorNormalCompletion = true;_didIteratorError = false;_iteratorError = undefined;_context.prev = 14;
                 for (_iterator = docs[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {item = _step.value;
                   if (item.status.name != 'passed') {
                     status = 'failed';
                   }
-                }_context.next = 21;break;case 17:_context.prev = 17;_context.t0 = _context["catch"](13);_didIteratorError = true;_iteratorError = _context.t0;case 21:_context.prev = 21;_context.prev = 22;if (!_iteratorNormalCompletion && _iterator.return != null) {_iterator.return();}case 24:_context.prev = 24;if (!_didIteratorError) {_context.next = 27;break;}throw _iteratorError;case 27:return _context.finish(24);case 28:return _context.finish(21);case 29:
+                }_context.next = 22;break;case 18:_context.prev = 18;_context.t0 = _context["catch"](14);_didIteratorError = true;_iteratorError = _context.t0;case 22:_context.prev = 22;_context.prev = 23;if (!_iteratorNormalCompletion && _iterator.return != null) {_iterator.return();}case 25:_context.prev = 25;if (!_didIteratorError) {_context.next = 28;break;}throw _iteratorError;case 28:return _context.finish(25);case 29:return _context.finish(22);case 30:
                 doc = docs[0];
                 pro = doc.element.project;
                 ins = doc.element.instrument ? doc.element.instrument : '*';
@@ -3805,9 +3806,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.user = voi
                 state.status = status;
                 commit('setPro', pro);
                 commit('setIns', ins);
-                commit('setDocs', docs);_context.next = 42;break;case 39:_context.prev = 39;_context.t1 = _context["catch"](1);
+                commit('setDocs', docs);_context.next = 43;break;case 40:_context.prev = 40;_context.t1 = _context["catch"](1);
 
-                commit('setErr', _context.t1);case 42:case "end":return _context.stop();}}}, _callee, this, [[1, 39], [13, 17, 21, 29], [22,, 24, 28]]);}));function setApp(_x, _x2) {return _setApp.apply(this, arguments);}return setApp;}() },
+                commit('setErr', _context.t1);case 43:case "end":return _context.stop();}}}, _callee, this, [[1, 40], [14, 18, 22, 30], [23,, 25, 29]]);}));function setApp(_x, _x2) {return _setApp.apply(this, arguments);}return setApp;}() },
 
 
 
@@ -3850,7 +3851,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.user = voi
       } catch (err) {_didIteratorError2 = true;_iteratorError2 = err;} finally {try {if (!_iteratorNormalCompletion2 && _iterator2.return != null) {_iterator2.return();}} finally {if (_didIteratorError2) {throw _iteratorError2;}}}return proIns;
     },
     doc: function doc(state) {
-      function formartCase(cases, status) {
+      function formartAndFilterCase(cases, status) {
         var data = {};
         function prehandle(module, category) {
           if (!data[module]) {
@@ -3911,11 +3912,11 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.user = voi
           }
           doc = JSON.parse(JSON.stringify(item));
           doc.idx = idx;
-          doc.archive.cases.online = formartCase(
+          doc.archive.cases.online = formartAndFilterCase(
           item.archive.cases.online,
           state.onlineStatus);
 
-          doc.archive.cases.offline = formartCase(
+          doc.archive.cases.offline = formartAndFilterCase(
           item.archive.cases.offline,
           state.offlineStatus);
 
@@ -9689,7 +9690,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -9710,14 +9711,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9793,7 +9794,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -11088,7 +11089,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/detail/index": { "navigationBarTitleText": "NATS" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#f8f8f8", "backgroundColor": "#f8f8f8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/detail/index": { "navigationBarTitleText": "NATS" }, "pages/alink/index": { "navigationBarTitleText": "bugzilla" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#f8f8f8", "backgroundColor": "#f8f8f8" } };exports.default = _default;
 
 /***/ }),
 

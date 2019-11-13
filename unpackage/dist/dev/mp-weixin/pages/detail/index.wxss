@@ -1,11 +1,9 @@
 
 .content {
-  padding-left: 10rpx;
-  padding-right: 10rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
 }
 .v-space {
-  margin-top: 10rpx;
-  padding-left: 10rpx;
-  padding-right: 10rpx;
+  margin-bottom: 10rpx;
 }
 

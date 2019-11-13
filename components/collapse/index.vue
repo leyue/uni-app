@@ -39,7 +39,9 @@ export default {
       this.iconName = newV ? 'arrowup' : 'arrowdown';
     },
   },
-  onLoad(e) {},
+  onReady(e) {
+    this.props.expand = this.expand;
+  },
   methods: {
     onExpand(e) {
       this.props.expand = !this.props.expand;

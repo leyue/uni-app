@@ -1,8 +1,20 @@
 
 .content {
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  padding: 10rpx;
+}
+.list-item {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1rpx solid #c0c2c4;
+  border-radius: 3rpx;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+.list-item::after {
+  border: none;
 }
 .item {
   display: -webkit-box;
@@ -29,8 +41,11 @@
 .h-space {
   margin-left: 30rpx;
 }
+.v-space {
+  margin-top: 20rpx;
+}
 .light {
   color: #7e8c8d;
-  width: 60%;
+  width: 70%;
 }
 

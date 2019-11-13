@@ -1,6 +1,6 @@
 <template>
   <view style="width: 100%">
-    <collapse title="工具版本">
+    <collapse title="工具版本" :expand="false">
       <view slot="content" class="content">
         <view class="list-item" v-for="(item, idx) in items" :key="idx">
           <view class="item">

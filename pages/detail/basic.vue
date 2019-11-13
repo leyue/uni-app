@@ -1,19 +1,18 @@
 <template>
-  <view class="content">
-    <uni-card
-      mode="title"
-      :is-full="true"
-      :is-shadow="true"
-      thumbnail="/static/lgog.png"
-      :title="app"
-      :extra="allStatus"
-    >
-      <view>
-        <view class="item" @click="pickerProInsShow">
+  <view style="width: 100%">
+    <collapse :title="`${app}-${allStatus}`" :expand="true">
+      <view slot="content" class="content">
+        <view class="item">
           <text class="label">项目-仪表</text>
           <text class="h-space light">{{`${pro}-${ins}`}}</text>
           <view style="flex: 2" />
-          <uni-icons type="arrowright" size="20" />
+          <uni-icons
+            v-if="enablePicker"
+            style="margin-right: 20upx"
+            type="arrowright"
+            size="20"
+            @click="pickerProInsShow"
+          />
         </view>
         <view class="item">
           <text class="label">状态</text>
@@ -25,7 +24,7 @@
         </view>
         <view class="item">
           <text class="label">HW</text>
-          <text class="space light">{{doc.element.hw}}</text>
+          <text class="h-space light">{{doc.element.hw}}</text>
         </view>
         <view class="item">
           <text class="label">阶段</text>
@@ -51,32 +50,32 @@
           <text class="label">提交者</text>
           <text class="h-space light">{{doc.committer}}</text>
         </view>
+        <mpvue-picker
+          ref="pickerProIns"
+          mode="multiLinkageSelector"
+          deepLength="2"
+          :pickerValueDefault="pickerVal"
+          :themeColor="$color.nephritis"
+          @onChange="pickerProInsOnChange"
+          @onConfirm="pickerProInsOnConfirm"
+          @onCancel="pickerProInsOnCancel"
+          :pickerValueArray="proIns"
+        />
       </view>
-    </uni-card>
-    <view>
-      <mpvue-picker
-        ref="pickerProIns"
-        mode="multiLinkageSelector"
-        deepLength="2"
-        :pickerValueDefault="pickerVal"
-        :themeColor="$color.nephritis"
-        @onChange="pickerProInsOnChange"
-        @onConfirm="pickerProInsOnConfirm"
-        @onCancel="pickerProInsOnCancel"
-        :pickerValueArray="proIns"
-      />
-    </view>
+    </collapse>
   </view>
 </template>
 
 <script>
 import {mapState, mapGetters} from 'vuex';
 import {uniCard, uniIcons} from '@dcloudio/uni-ui';
+import collapse from '../../components/collapse';
 import mpvuePicker from 'mpvue-picker';
 export default {
   props: {},
   components: {
     uniCard,
+    collapse,
     uniIcons,
     mpvuePicker,
   },
@@ -96,6 +95,9 @@ export default {
       },
     }),
     ...mapGetters('detail', ['doc', 'proIns']),
+    enablePicker() {
+      return this.$store.state.detail.docs.length > 1;
+    },
     status() {
       return this.doc ? this.doc.status.name : '...';
     },
@@ -123,7 +125,19 @@ export default {
 </script>
 <style>
 .content {
-  flex-wrap: wrap;
+  padding: 10upx;
+}
+.list-item {
+  box-sizing: border-box;
+  border: 1upx solid #c0c2c4;
+  border-radius: 3upx;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10upx;
+  padding-left: 10upx;
+  padding-right: 10upx;
+}
+.list-item::after {
+  border: none;
 }
 .item {
   display: flex;
@@ -137,8 +151,11 @@ export default {
 .h-space {
   margin-left: 30upx;
 }
+.v-space {
+  margin-top: 20upx;
+}
 .light {
   color: #7e8c8d;
-  width: 60%;
+  width: 70%;
 }
 </style>
