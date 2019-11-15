@@ -254,7 +254,7 @@ var _vuex = __webpack_require__(/*! vuex */ 23);function _objectSpread(target) {
     calcProgress: function calcProgress(item) {
       var val = item.status1.progress;
       val = val.slice(0, val.length - 1);
-      return +val / 100;
+      return +val;
     } },
 
   data: function data() {
@@ -273,7 +273,7 @@ var _vuex = __webpack_require__(/*! vuex */ 23);function _objectSpread(target) {
       console.log(url);
       var task = uni.downloadFile({
         url: url,
-        tempFilePath: '',
+        // tempFilePath: '',
         success: function success(res) {
           console.log(res);
         },

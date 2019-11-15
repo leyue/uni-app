@@ -68,8 +68,11 @@ export default {
       mask: false,
     });
     await uni.$ax.login();
-    await uni.$func.mSleep(10);
-    let app = e.app || 'SWVT20190821091448593a';
+    await uni.$func.mSleep(1);
+    let app = decodeURIComponent(e.scene);
+    if (app == 'undefined') {
+      app = e.app || 'SWVT201908070219014bbd';
+    }
     console.log(app);
     await this.$store.dispatch('detail/setApp', app);
     uni.hideLoading();

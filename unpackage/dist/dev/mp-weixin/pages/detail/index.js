@@ -192,11 +192,14 @@ var _vuex = __webpack_require__(/*! vuex */ 23);function _interopRequireDefault(
                 mask: false });_context.next = 3;return (
 
                 uni.$ax.login());case 3:_context.next = 5;return (
-                uni.$func.mSleep(10));case 5:
-              app = e.app || 'SWVT20190821091448593a';
-              console.log(app);_context.next = 9;return (
-                this.$store.dispatch('detail/setApp', app));case 9:
-              uni.hideLoading();case 10:case "end":return _context.stop();}}}, _callee, this);}));function onLoad(_x) {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
+                uni.$func.mSleep(1));case 5:
+              app = decodeURIComponent(e.scene);
+              if (app == 'undefined') {
+                app = e.app || 'SWVT201908070219014bbd';
+              }
+              console.log(app);_context.next = 10;return (
+                this.$store.dispatch('detail/setApp', app));case 10:
+              uni.hideLoading();case 11:case "end":return _context.stop();}}}, _callee, this);}));function onLoad(_x) {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),

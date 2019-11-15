@@ -94,6 +94,8 @@ export default {
 }
 .light {
   color: #7e8c8d;
-  width: 35%;
+  width: 75%;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 </style>

@@ -118,7 +118,7 @@ export default {
     calcProgress(item) {
       let val = item.status1.progress;
       val = val.slice(0, val.length - 1);
-      return +val / 100;
+      return +val;
     },
   },
   data() {
@@ -137,7 +137,7 @@ export default {
       console.log(url);
       const task = uni.downloadFile({
         url,
-        tempFilePath: '',
+        // tempFilePath: '',
         success: res => {
           console.log(res);
         },

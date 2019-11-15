@@ -6,7 +6,7 @@
           <view class="item">
             <text class="label">模块</text>
             <text class="h-space light">{{item.module}}</text>
-            <text class="h-space light">{{item.status}}</text>
+            <text class="h-space light2">{{item.status}}</text>
           </view>
           <view class="item">
             <text class="label">Tester</text>
@@ -98,6 +98,14 @@ export default {
 }
 .light {
   color: #7e8c8d;
-  width: 35%;
+  width: 55%;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.light2 {
+  color: #7e8c8d;
+  width: 20%;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 </style>

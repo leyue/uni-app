@@ -156,6 +156,8 @@ export default {
 }
 .light {
   color: #7e8c8d;
-  width: 70%;
+  word-wrap: break-word;
+  word-break: break-all;
+  width: 78%;
 }
 </style>

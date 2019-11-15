@@ -193,6 +193,8 @@ export default {
 .light {
   color: #7e8c8d;
   width: 75%;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .tiny-radio {
   transform: scale(0.7);
