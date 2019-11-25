@@ -36,5 +36,5 @@ class Ax extends Object {
 }
 
 uni.$ax = new Ax({
-  baseURL: 'http://nats-sh.unisoc.com:30001/app',
+  baseURL: 'https://nats-sh.unisoc.com/app',
 });

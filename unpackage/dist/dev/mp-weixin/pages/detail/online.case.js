@@ -269,7 +269,7 @@ var _vuex = __webpack_require__(/*! vuex */ 23);function _objectSpread(target) {
     },
     onModuleChange: function onModuleChange(idx) {},
     onLogDownload: function onLogDownload(item) {
-      var url = "http://nats-sh.unisoc.com:30001/nginx/download/logs/test/".concat(this.doc.app, "_").concat(this.doc._id, "/online").concat(item.log.httpUri);
+      var url = "https://nats-sh.unisoc.com/nginx/download/logs/test/".concat(this.doc.app, "_").concat(this.doc._id, "/online").concat(item.log.httpUri);
       console.log(url);
       var task = uni.downloadFile({
         url: url,

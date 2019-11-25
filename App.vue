@@ -2,6 +2,9 @@
 export default {
   onLaunch: function() {
     console.log('App Launch');
+		uni.setEnableDebug({
+		    enableDebug: true
+		});
     // #ifdef APP-PLUS
     // 锁定屏幕方向
     plus.screen.lockOrientation('portrait-primary'); //锁定

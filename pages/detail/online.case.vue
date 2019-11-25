@@ -133,7 +133,7 @@ export default {
     },
     onModuleChange(idx) {},
     onLogDownload(item) {
-      let url = `http://nats-sh.unisoc.com:30001/nginx/download/logs/test/${this.doc.app}_${this.doc._id}/online${item.log.httpUri}`;
+      let url = `https://nats-sh.unisoc.com/nginx/download/logs/test/${this.doc.app}_${this.doc._id}/online${item.log.httpUri}`;
       console.log(url);
       const task = uni.downloadFile({
         url,
