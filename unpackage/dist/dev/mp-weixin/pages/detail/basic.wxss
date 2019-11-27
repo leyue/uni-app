@@ -1,6 +1,5 @@
-
 .content {
-  padding: 10rpx;
+  background-color: #fff;
 }
 .list-item {
   -webkit-box-sizing: border-box;

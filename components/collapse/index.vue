@@ -2,7 +2,7 @@
   <view class="body">
     <slot name="header">
       <view class="header item" @click="onExpand">
-        <text>{{title}}</text>
+        <text :style="{color}">{{title}}</text>
         <view style="flex:2" />
         <uni-icons :type="iconName" size="20" />
       </view>
@@ -21,6 +21,7 @@ export default {
   },
   props: {
     title: {type: String, default: '...'},
+    color: {type: String, default: '#2c3e52'},
     expand: {type: Boolean, default: true},
   },
   data() {
@@ -52,18 +53,22 @@ export default {
 
 <style>
 .body {
-  border: 1upx solid #c0c2c4;
-  border-radius: 3upx;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #fff;
 }
 .header {
-  padding-left: 30upx;
-  padding-right: 30upx;
-  border-bottom: 1upx solid #c0c2c4;
+  padding-left: 0upx;
+  padding-right: 0upx;
+  border-bottom: 0upx solid #c0c2c4;
+  font-weight: 700;
 }
 .content {
   padding-left: 0upx;
   padding-right: 0upx;
+  background-color: #fff;
 }
 .item {
   display: flex;

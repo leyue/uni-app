@@ -80,10 +80,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
 .content {
-  padding-left: 15upx;
-  padding-right: 15upx;
+  background-color: #ededed;
 }
 .v-space {
   margin-bottom: 10upx;

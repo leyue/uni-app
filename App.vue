@@ -2,9 +2,9 @@
 export default {
   onLaunch: function() {
     console.log('App Launch');
-		uni.setEnableDebug({
-		    enableDebug: true
-		});
+    uni.setEnableDebug({
+      enableDebug: true,
+    });
     // #ifdef APP-PLUS
     // 锁定屏幕方向
     plus.screen.lockOrientation('portrait-primary'); //锁定
@@ -57,7 +57,7 @@ export default {
 <style>
 /* #ifndef APP-PLUS-NVUE */
 /* uni.css - 通用组件、模板样式库，可以当作一套ui库应用 */
-@import './common/uni.css';
+@import './glob/uni.css';
 
 /* 以下样式用于 hello uni-app 演示所需 */
 page {

@@ -1,4 +1,4 @@
-import './common';
+import './glob';
 import Vue from 'vue';
 import App from './App';
 import pageHead from './components/page-head.vue';

@@ -33,21 +33,29 @@
                 <text class="light">{{cItem | formatName}}</text>
               </view>
               <view class="item">
-                <text class="label">进度</text>
-                <progress style="width: 60%" :percent="cItem | calcProgress" stroke-width="3" />
+                <text class="label">状态</text>
+                <progress
+                  style="{width: '60%'}"
+                  :activeColor="getColor(cItem)"
+                  :percent="cItem | calcProgress"
+                  stroke-width="3"
+                />
                 <uni-icons
                   v-if="cItem.log.upload"
                   style="margin-left: 20upx"
+                  :color="getColor(cItem)"
                   type="download"
                   size="20"
                   @click="onLogDownload(JSON.parse(JSON.stringify(cItem)))"
                 />
+                <text
+                  :style="{'margin-left': '20upx', width: '20%', color: getColor(cItem)}"
+                >{{cItem.status1.doName}}</text>
               </view>
-              <view class="item">
-                <text class="label">状态</text>
-                <text class="light">{{cItem.status1.doName}}</text>
+              <view v-if="cItem.status1.error" class="item">
+                <text class="label">Error</text>
+                <text class="light" style="{color: red}">{{cItem.status1.error}}</text>
               </view>
-              <view></view>
             </view>
           </view>
         </view>
@@ -128,6 +136,25 @@ export default {
     };
   },
   methods: {
+    getColor(item) {
+      let status = item.status1.doName;
+      let color = uni.$color.carrot;
+      switch (status) {
+        case 'ongoing':
+          color = uni.$color.orange;
+          break;
+        case 'owner_confirm':
+          color = uni.$color.carrot;
+          break;
+        case 'passed':
+          color = uni.$color.nephritis;
+          break;
+        case 'failed':
+          color = uni.$color.pomegranate;
+          break;
+      }
+      return color;
+    },
     onStatusChange(e) {
       this.$store.commit('detail/setOnlineStatus', e.target.value);
     },
@@ -151,34 +178,29 @@ export default {
         console.log('已经下载的数据长度' + res.totalBytesWritten);
         console.log('预期需要下载的数据总长度' + res.totalBytesExpectedToWrite);
         // 测试条件，取消下载任务。
-        if (res.progress > 50) {
-          task.abort();
-        }
+        // if (res.progress > 50) {
+        //   task.abort();
+        // }
       });
     },
   },
 };
 </script>
-<style>
+<style lang="less">
 .content {
-  padding: 10upx;
+  background-color: #fff;
 }
 .line {
-  border-bottom: 1upx dashed #c0c2c4;
+  border-bottom: 1px solid #fff;
 }
 .box {
-  box-sizing: border-box;
-  border: 1upx solid #c0c2c4;
-  border-radius: 3upx;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: #ededed;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 3px;
 }
 .list-item {
-  margin-bottom: 10upx;
-  padding-left: 10upx;
-  padding-right: 10upx;
-}
-.list-item::after {
-  border: none;
+  padding: 3px;
 }
 .item {
   display: flex;

@@ -1,6 +1,10 @@
 <template>
   <view style="width: 100%">
-    <collapse :title="`${app}-${allStatus}`" :expand="true">
+    <collapse
+      :title="`${app}-${allStatus}`"
+      :color="`${allStatus=='passed'?'#2c3e52':'#c33825'}`"
+      :expand="true"
+    >
       <view slot="content" class="content">
         <view class="item">
           <text class="label">项目-仪表</text>
@@ -16,7 +20,7 @@
         </view>
         <view class="item">
           <text class="label">状态</text>
-          <text class="h-space light">{{doc.status.name}}</text>
+          <text class="h-space light" :style="{color: statusColor}">{{doc.status.name}}</text>
         </view>
         <view class="item">
           <text class="label">类型</text>
@@ -101,6 +105,24 @@ export default {
     status() {
       return this.doc ? this.doc.status.name : '...';
     },
+    statusColor() {
+      let color = uni.$color.carrot;
+      switch (this.status) {
+        case 'ongoing':
+          color = uni.$color.orange;
+          break;
+        case 'owner_confirm':
+          color = uni.$color.carrot;
+          break;
+        case 'passed':
+          color = uni.$color.nephritis;
+          break;
+        case 'failed':
+          color = uni.$color.pomegranate;
+          break;
+      }
+      return color;
+    },
   },
   watch: {},
   data() {
@@ -123,9 +145,9 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="less">
 .content {
-  padding: 10upx;
+  background-color: #fff;
 }
 .list-item {
   box-sizing: border-box;

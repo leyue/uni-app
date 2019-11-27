@@ -154,26 +154,21 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="less">
 .content {
-  padding: 10upx;
+  background-color: #fff;
 }
 .line {
-  border-bottom: 1upx dashed #c0c2c4;
+  border-bottom: 1px solid #fff;
 }
 .box {
-  box-sizing: border-box;
-  border: 1upx solid #c0c2c4;
-  border-radius: 3upx;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: #ededed;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 3px;
 }
 .list-item {
-  margin-bottom: 10upx;
-  padding-left: 10upx;
-  padding-right: 10upx;
-}
-.list-item::after {
-  border: none;
+  padding: 3px;
 }
 .item {
   display: flex;
@@ -193,8 +188,6 @@ export default {
 .light {
   color: #7e8c8d;
   width: 75%;
-  word-wrap: break-word;
-  word-break: break-all;
 }
 .tiny-radio {
   transform: scale(0.7);

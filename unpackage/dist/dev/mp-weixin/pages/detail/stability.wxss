@@ -1,20 +1,11 @@
-
 .content {
-  padding: 10rpx;
+  background-color: #fff;
 }
 .list-item {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border: 1rpx solid #c0c2c4;
-  border-radius: 3rpx;
-  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10rpx;
-  padding-left: 10rpx;
-  padding-right: 10rpx;
-}
-.list-item::after {
-  border: none;
+  background-color: #ededed;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 3px;
 }
 .item {
   display: -webkit-box;

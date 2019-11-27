@@ -61,21 +61,15 @@ export default {
   methods: {},
 };
 </script>
-<style>
+<style lang="less">
 .content {
-  padding: 10upx;
+  background-color: #fff;
 }
 .list-item {
-  box-sizing: border-box;
-  border: 1upx solid #c0c2c4;
-  border-radius: 3upx;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10upx;
-  padding-left: 10upx;
-  padding-right: 10upx;
-}
-.list-item::after {
-  border: none;
+  background-color: #ededed;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 3px;
 }
 .item {
   display: flex;
