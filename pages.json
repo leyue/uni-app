@@ -4,7 +4,7 @@
     {
       "path": "pages/detail/index",
       "style": {
-        "navigationBarTitleText": "NATS"
+        "navigationBarTitleText": "测试报告"
       }
     },
     {
@@ -26,11 +26,11 @@
     "list": [
       {
         // 模式名称
-        "name": "SWVT20190821091448593a",
+        "name": "SWVT20191121074010686c",
         // 启动页面
         "path": "pages/detail/index",
         // 启动参数，在页面onload的函数里面得到
-        "query": "app=SWVT20190821091448593a"
+        "query": "app=SWVT20191121074010686c"
       },
       {
         // 模式名称

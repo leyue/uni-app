@@ -56,7 +56,13 @@ export default {
     detailOnlineCase: onlineCase,
     detailOfflineCase: offlineCase,
   },
-  computed: {},
+  computed: {
+    ...mapState('detail', {
+      app: state => {
+        return state.app.toUpperCase();
+      },
+    }),
+  },
   watch: {},
   data() {
     return {};
@@ -69,13 +75,19 @@ export default {
     });
     await uni.$ax.login();
     await uni.$func.mSleep(1);
+    console.log(e);
     let app = decodeURIComponent(e.scene);
     if (app == 'undefined') {
       app = e.app || 'SWVT201908070219014bbd';
     }
-    console.log(app);
     await this.$store.dispatch('detail/setApp', app);
     uni.hideLoading();
+  },
+  onShareAppMessage(res) {
+    return {
+      title: '测试报告',
+      path: `pages/detail/index?app=${this.app}`,
+    };
   },
 };
 </script>

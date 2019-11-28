@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "NATS",
+  "navigationBarTitleText": "测试报告",
   "usingComponents": {
     "detail-basic": "/pages/detail/basic",
     "detail-module": "/pages/detail/module",

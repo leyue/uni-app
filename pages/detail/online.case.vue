@@ -22,60 +22,67 @@
           </radio-group>
         </scroll-view>
         <wuc-tab :tab-list="modules" :tabCur.sync="moduleIdx" @change="onModuleChange" />
-        <view class="list-item box" v-for="(item, idx) in categorys" :key="idx">
+        <view class="list-item" v-for="(item, idx) in categorys" :key="idx">
           <view class="list-item">
-            <view>
+            <view class="box" :style="{'background-color': '#bec3c7'}">
               <text class="light" style="color: #2c3e52">{{item}}</text>
             </view>
-            <view class="list-item line" v-for="(cItem, cIdx) in cases[module][item]" :key="cIdx">
-              <view class="item">
-                <text class="label">名称</text>
-                <text class="light">{{cItem | formatName}}</text>
-              </view>
-              <view class="item">
-                <text class="label">状态</text>
-                <progress
-                  style="{width: '60%'}"
-                  :activeColor="getColor(cItem)"
-                  :percent="cItem | calcProgress"
-                  stroke-width="3"
-                />
-                <uni-icons
-                  v-if="cItem.log.upload"
-                  style="margin-left: 20upx"
-                  :color="getColor(cItem)"
-                  type="download"
-                  size="20"
-                  @click="onLogDownload(JSON.parse(JSON.stringify(cItem)))"
-                />
-                <text
-                  :style="{'margin-left': '20upx', width: '20%', color: getColor(cItem)}"
-                >{{cItem.status1.doName}}</text>
-              </view>
-              <view v-if="cItem.status1.error" class="item">
-                <text class="label">Error</text>
-                <text class="light" style="{color: red}">{{cItem.status1.error}}</text>
+            <view class="list-item" v-for="(cItem, cIdx) in cases[module][item]" :key="cIdx">
+              <view class="box">
+                <view class="item">
+                  <text class="label">名称</text>
+                  <text class="light">{{cItem | formatName}}</text>
+                </view>
+                <view class="item">
+                  <text class="label">进度</text>
+                  <progress
+                    :style="{width: '40%'}"
+                    :activeColor="getColor(cItem)"
+                    :percent="cItem | calcProgress"
+                    stroke-width="3"
+                  />
+                  <text
+                    :style="{'margin-left': '20px', width: '20%', color: getColor(cItem)}"
+                  >{{cItem.status1.doName}}</text>
+                  <uni-icons
+                    :style="{'margin-left': '10px'}"
+                    v-if="cItem.log.upload"
+                    :color="getColor(cItem)"
+                    type="download"
+                    size="20"
+                    @click="onLogDownload(JSON.parse(JSON.stringify(cItem)))"
+                  />
+                </view>
+                <view v-if="cItem.status1.error" class="item">
+                  <text class="label">Error</text>
+                  <text class="light" style="{color: red}">{{cItem.status1.error}}</text>
+                </view>
               </view>
             </view>
           </view>
         </view>
       </view>
     </collapse>
+    <download ref="downloadLog" />
   </view>
 </template>
 
 <script>
 import {mapState, mapGetters} from 'vuex';
-import {uniCard, uniIcons} from '@dcloudio/uni-ui';
+import {uniCard, uniIcons, uniPopup} from '@dcloudio/uni-ui';
 import WucTab from '@/components/wuc-tab/wuc-tab.vue';
-import collapse from '../../components/collapse';
+import collapse from '@/components/collapse';
+import download from '@/components/download';
+
 export default {
   props: {},
   components: {
     uniCard,
     uniIcons,
+    uniPopup,
     collapse,
     WucTab,
+    download,
   },
   computed: {
     ...mapState('detail', {}),
@@ -161,27 +168,8 @@ export default {
     onModuleChange(idx) {},
     onLogDownload(item) {
       let url = `https://nats-sh.unisoc.com/nginx/download/logs/test/${this.doc.app}_${this.doc._id}/online${item.log.httpUri}`;
-      console.log(url);
-      const task = uni.downloadFile({
-        url,
-        // tempFilePath: '',
-        success: res => {
-          console.log(res);
-        },
-        fail: () => {},
-        complete: () => {
-          uni.saveFile();
-        },
-      });
-      task.onProgressUpdate(res => {
-        console.log('下载进度' + res.progress);
-        console.log('已经下载的数据长度' + res.totalBytesWritten);
-        console.log('预期需要下载的数据总长度' + res.totalBytesExpectedToWrite);
-        // 测试条件，取消下载任务。
-        // if (res.progress > 50) {
-        //   task.abort();
-        // }
-      });
+      // let tempFilePath = `/storage/emulated/0/nats/${item.name}.zip`;
+      this.$refs.downloadLog.start(url);
     },
   },
 };
@@ -190,9 +178,6 @@ export default {
 .content {
   background-color: #fff;
 }
-.line {
-  border-bottom: 1px solid #fff;
-}
 .box {
   background-color: #ededed;
   margin-bottom: 5px;
@@ -200,7 +185,7 @@ export default {
   border-radius: 3px;
 }
 .list-item {
-  padding: 3px;
+  padding: 0px;
 }
 .item {
   display: flex;
@@ -219,7 +204,7 @@ export default {
 }
 .light {
   color: #7e8c8d;
-  width: 75%;
+  width: 78%;
 }
 .tiny-radio {
   transform: scale(0.7);

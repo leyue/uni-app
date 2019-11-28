@@ -82,16 +82,16 @@ var render = function() {
       var f1 = _vm._f("calcProgress")(cItem)
 
       var m1 = _vm.getColor(cItem)
-      var g0 = JSON.parse(JSON.stringify(cItem))
       var m2 = _vm.getColor(cItem)
+      var g0 = JSON.parse(JSON.stringify(cItem))
       return {
         $orig: _vm.__get_orig(cItem),
         f0: f0,
         m0: m0,
         f1: f1,
         m1: m1,
-        g0: g0,
-        m2: m2
+        m2: m2,
+        g0: g0
       }
     })
 
@@ -208,7 +208,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 25);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _uniIcons = function _uniIcons() {return Promise.all(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-icons/uni-icons */ 123));};var _uniCard = function _uniCard() {return __webpack_require__.e(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-card/uni-card */ "node-modules/@dcloudio/uni-ui/lib/uni-card/uni-card").then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-card/uni-card */ 131));};var WucTab = function WucTab() {return __webpack_require__.e(/*! import() | components/wuc-tab/wuc-tab */ "components/wuc-tab/wuc-tab").then(__webpack_require__.bind(null, /*! @/components/wuc-tab/wuc-tab.vue */ 153));};var collapse = function collapse() {return __webpack_require__.e(/*! import() | components/collapse/index */ "components/collapse/index").then(__webpack_require__.bind(null, /*! ../../components/collapse */ 138));};var _default =
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 25);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _uniPopup = function _uniPopup() {return __webpack_require__.e(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-popup/uni-popup */ "node-modules/@dcloudio/uni-ui/lib/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-popup/uni-popup */ 153));};var _uniIcons = function _uniIcons() {return Promise.all(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-icons/uni-icons */ 123));};var _uniCard = function _uniCard() {return __webpack_require__.e(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-card/uni-card */ "node-modules/@dcloudio/uni-ui/lib/uni-card/uni-card").then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-card/uni-card */ 131));};var WucTab = function WucTab() {return __webpack_require__.e(/*! import() | components/wuc-tab/wuc-tab */ "components/wuc-tab/wuc-tab").then(__webpack_require__.bind(null, /*! @/components/wuc-tab/wuc-tab.vue */ 160));};var collapse = function collapse() {return __webpack_require__.e(/*! import() | components/collapse/index */ "components/collapse/index").then(__webpack_require__.bind(null, /*! @/components/collapse */ 138));};var download = function download() {return __webpack_require__.e(/*! import() | components/download/index */ "components/download/index").then(__webpack_require__.bind(null, /*! @/components/download */ 167));};var _default =
+
+
 
 
 
@@ -217,8 +222,10 @@ var _vuex = __webpack_require__(/*! vuex */ 25);function _objectSpread(target) {
   components: {
     uniCard: _uniCard,
     uniIcons: _uniIcons,
+    uniPopup: _uniPopup,
     collapse: collapse,
-    WucTab: WucTab },
+    WucTab: WucTab,
+    download: download },
 
   computed: _objectSpread({},
   (0, _vuex.mapState)('detail', {}),
@@ -304,27 +311,8 @@ var _vuex = __webpack_require__(/*! vuex */ 25);function _objectSpread(target) {
     onModuleChange: function onModuleChange(idx) {},
     onLogDownload: function onLogDownload(item) {
       var url = "https://nats-sh.unisoc.com/nginx/download/logs/test/".concat(this.doc.app, "_").concat(this.doc._id, "/online").concat(item.log.httpUri);
-      console.log(url);
-      var task = uni.downloadFile({
-        url: url,
-        // tempFilePath: '',
-        success: function success(res) {
-          console.log(res);
-        },
-        fail: function fail() {},
-        complete: function complete() {
-          uni.saveFile();
-        } });
-
-      task.onProgressUpdate(function (res) {
-        console.log('下载进度' + res.progress);
-        console.log('已经下载的数据长度' + res.totalBytesWritten);
-        console.log('预期需要下载的数据总长度' + res.totalBytesExpectedToWrite);
-        // 测试条件，取消下载任务。
-        // if (res.progress > 50) {
-        //   task.abort();
-        // }
-      });
+      // let tempFilePath = `/storage/emulated/0/nats/${item.name}.zip`;
+      this.$refs.downloadLog.start(url);
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 

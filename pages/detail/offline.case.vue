@@ -22,36 +22,38 @@
           </radio-group>
         </scroll-view>
         <wuc-tab :tab-list="modules" :tabCur.sync="moduleIdx" @change="onModuleChange" />
-        <view class="list-item box" v-for="(item, idx) in categorys" :key="idx">
+        <view class="list-item" v-for="(item, idx) in categorys" :key="idx">
           <view class="list-item">
             <view>
               <text class="light" style="color: #2c3e52">{{item}}</text>
             </view>
             <view class="list-item line" v-for="(cItem, cIdx) in cases[module][item]" :key="cIdx">
-              <view class="item">
-                <text class="label">名称</text>
-                <text class="light">{{cItem | formatName}}</text>
+              <view class="box">
+                <view class="item">
+                  <text class="label">名称</text>
+                  <text class="light">{{cItem | formatName}}</text>
+                </view>
+                <view class="item">
+                  <text class="label">mark</text>
+                  <text style="color: #7e8c8d; width: 55%;">{{cItem.status1.remark}}</text>
+                  <uni-icons
+                    v-if="cItem.log.upload"
+                    style="margin-left: 20upx"
+                    type="download"
+                    size="20"
+                    @click="onLogDownload(JSON.parse(JSON.stringify(cItem)))"
+                  />
+                </view>
+                <view class="item">
+                  <text class="label">remark</text>
+                  <text class="light">{{cItem.status1.doRemark}}</text>
+                </view>
+                <view class="item">
+                  <text class="label">状态</text>
+                  <text class="light">{{cItem.status1.doName}}</text>
+                </view>
+                <view></view>
               </view>
-              <view class="item">
-                <text class="label">mark</text>
-                <text style="color: #7e8c8d; width: 55%;">{{cItem.status1.remark}}</text>
-                <uni-icons
-                  v-if="cItem.log.upload"
-                  style="margin-left: 20upx"
-                  type="download"
-                  size="20"
-                  @click="onLogDownload(JSON.parse(JSON.stringify(cItem)))"
-                />
-              </view>
-              <view class="item">
-                <text class="label">remark</text>
-                <text class="light">{{cItem.status1.doRemark}}</text>
-              </view>
-              <view class="item">
-                <text class="label">状态</text>
-                <text class="light">{{cItem.status1.doName}}</text>
-              </view>
-              <view></view>
             </view>
           </view>
         </view>
@@ -158,9 +160,6 @@ export default {
 .content {
   background-color: #fff;
 }
-.line {
-  border-bottom: 1px solid #fff;
-}
 .box {
   background-color: #ededed;
   margin-bottom: 5px;
@@ -168,7 +167,7 @@ export default {
   border-radius: 3px;
 }
 .list-item {
-  padding: 3px;
+  padding: 0px;
 }
 .item {
   display: flex;
@@ -187,7 +186,7 @@ export default {
 }
 .light {
   color: #7e8c8d;
-  width: 75%;
+  width: 78%;
 }
 .tiny-radio {
   transform: scale(0.7);
