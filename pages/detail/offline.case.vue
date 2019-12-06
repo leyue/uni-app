@@ -50,7 +50,7 @@
                 </view>
                 <view class="item">
                   <text class="label">状态</text>
-                  <text class="light">{{cItem.status1.doName}}</text>
+                  <text class="light" :style="{color: getColor(cItem)}">{{cItem.status1.doName}}</text>
                 </view>
                 <view></view>
               </view>
@@ -59,6 +59,7 @@
         </view>
       </view>
     </collapse>
+    <download ref="downloadLog" />
   </view>
 </template>
 
@@ -67,6 +68,8 @@ import {mapState, mapGetters} from 'vuex';
 import {uniCard, uniIcons} from '@dcloudio/uni-ui';
 import WucTab from '@/components/wuc-tab/wuc-tab.vue';
 import collapse from '../../components/collapse';
+import download from '@/components/download';
+
 export default {
   props: {},
   components: {
@@ -74,6 +77,7 @@ export default {
     uniIcons,
     collapse,
     WucTab,
+    download,
   },
   computed: {
     ...mapState('detail', {}),
@@ -125,33 +129,32 @@ export default {
     };
   },
   methods: {
+    getColor(item) {
+      let status = item.status1.doName;
+      let color = uni.$color.carrot;
+      switch (status) {
+        case 'ongoing':
+          color = uni.$color.orange;
+          break;
+        case 'owner_confirm':
+          color = uni.$color.carrot;
+          break;
+        case 'passed':
+          color = uni.$color.nephritis;
+          break;
+        case 'failed':
+          color = uni.$color.pomegranate;
+          break;
+      }
+      return color;
+    },
     onStatusChange(e) {
       this.$store.commit('detail/setOfflineStatus', e.target.value);
     },
     onModuleChange(idx) {},
     onLogDownload(item) {
       let url = `https://nats-sh.unisoc.com/nginx/download/logs/test/${this.doc.app}_${this.doc._id}/offline${item.log.httpUri}`;
-      console.log(url);
-      const task = uni.downloadFile({
-        url,
-        tempFilePath: '',
-        success: res => {
-          console.log(res);
-        },
-        fail: () => {},
-        complete: () => {
-          uni.saveFile();
-        },
-      });
-      task.onProgressUpdate(res => {
-        console.log('下载进度' + res.progress);
-        console.log('已经下载的数据长度' + res.totalBytesWritten);
-        console.log('预期需要下载的数据总长度' + res.totalBytesExpectedToWrite);
-        // 测试条件，取消下载任务。
-        if (res.progress > 50) {
-          task.abort();
-        }
-      });
+      this.$refs.downloadLog.start(url);
     },
   },
 };

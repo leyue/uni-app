@@ -59,7 +59,7 @@ export default {
   computed: {
     ...mapState('detail', {
       app: state => {
-        return state.app.toUpperCase();
+        return state.app;
       },
     }),
   },

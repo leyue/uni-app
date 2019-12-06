@@ -183,7 +183,7 @@ var _vuex = __webpack_require__(/*! vuex */ 25);function _interopRequireDefault(
   computed: _objectSpread({},
   (0, _vuex.mapState)('detail', {
     app: function app(state) {
-      return state.app.toUpperCase();
+      return state.app;
     } })),
 
 

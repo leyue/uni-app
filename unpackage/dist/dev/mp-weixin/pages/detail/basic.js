@@ -193,16 +193,16 @@ var _vuex = __webpack_require__(/*! vuex */ 25);function _objectSpread(target) {
   computed: _objectSpread({},
   (0, _vuex.mapState)('detail', {
     app: function app(state) {
-      return state.app.toUpperCase();
+      return state.app;
     },
     allStatus: function allStatus(state) {
-      return state.status.toUpperCase();
+      return state.status;
     },
     pro: function pro(state) {
-      return state.pro.toUpperCase();
+      return state.pro;
     },
     ins: function ins(state) {
-      return state.ins.toUpperCase();
+      return state.ins;
     } }),
 
   (0, _vuex.mapGetters)('detail', ['doc', 'proIns']), {

@@ -86,16 +86,16 @@ export default {
   computed: {
     ...mapState('detail', {
       app: state => {
-        return state.app.toUpperCase();
+        return state.app;
       },
       allStatus: state => {
-        return state.status.toUpperCase();
+        return state.status;
       },
       pro: state => {
-        return state.pro.toUpperCase();
+        return state.pro;
       },
       ins: state => {
-        return state.ins.toUpperCase();
+        return state.ins;
       },
     }),
     ...mapGetters('detail', ['doc', 'proIns']),
